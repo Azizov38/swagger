@@ -1,0 +1,2476 @@
+openapi: 3.0.3
+info:
+  title: ''
+  version: 0.0.0
+paths:
+  /api/accounts/badges/:
+    get:
+      operationId: api_accounts_badges_list
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Badge'
+          description: ''
+    post:
+      operationId: api_accounts_badges_create
+      tags:
+      - api
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/BadgeUpload'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/BadgeUpload'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Badge'
+          description: ''
+  /api/accounts/badges/{id}/:
+    get:
+      operationId: api_accounts_badges_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this badge.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Badge'
+          description: ''
+    put:
+      operationId: api_accounts_badges_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this badge.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Badge'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Badge'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Badge'
+          description: ''
+    patch:
+      operationId: api_accounts_badges_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this badge.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedBadge'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedBadge'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Badge'
+          description: ''
+    delete:
+      operationId: api_accounts_badges_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this badge.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/accounts/follow/:
+    get:
+      operationId: api_accounts_follow_list
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Follow'
+          description: ''
+    post:
+      operationId: api_accounts_follow_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Follow'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Follow'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Follow'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Follow'
+          description: ''
+  /api/accounts/follow/{id}/:
+    get:
+      operationId: api_accounts_follow_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this follow.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Follow'
+          description: ''
+    put:
+      operationId: api_accounts_follow_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this follow.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Follow'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Follow'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Follow'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Follow'
+          description: ''
+    patch:
+      operationId: api_accounts_follow_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this follow.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedFollow'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedFollow'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedFollow'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Follow'
+          description: ''
+    delete:
+      operationId: api_accounts_follow_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this follow.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/accounts/follow/followers/:
+    get:
+      operationId: api_accounts_follow_followers_list
+      summary: İzləyənləri göstər
+      parameters:
+      - in: query
+        name: username
+        schema:
+          type: string
+        description: İstifadəçi adı (optional)
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Follow'
+          description: ''
+  /api/accounts/follow/followings/:
+    get:
+      operationId: api_accounts_follow_followings_list
+      summary: İzlədiklərimi göstər
+      parameters:
+      - in: query
+        name: username
+        schema:
+          type: string
+        description: İstifadəçi adı (optional)
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Follow'
+          description: ''
+  /api/accounts/login/:
+    post:
+      operationId: api_accounts_login_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Login'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Login'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Login'
+        required: true
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Login'
+          description: ''
+  /api/accounts/logout/:
+    post:
+      operationId: api_accounts_logout_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Logout'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Logout'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Logout'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/accounts/password/reset/:
+    post:
+      operationId: api_accounts_password_reset_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasswordResetRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PasswordResetRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PasswordResetRequest'
+        required: true
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+                description: Unspecified response body
+          description: ''
+  /api/accounts/password/reset-confirm/{uidb64}/{token}/:
+    post:
+      operationId: api_accounts_password_reset_confirm_create
+      parameters:
+      - in: path
+        name: token
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: uidb64
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasswordResetConfirm'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PasswordResetConfirm'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PasswordResetConfirm'
+        required: true
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+                description: Unspecified response body
+          description: ''
+  /api/accounts/register/:
+    post:
+      operationId: api_accounts_register_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRegistration'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserRegistration'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserRegistration'
+        required: true
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+          description: ''
+  /api/accounts/token/refresh/:
+    post:
+      operationId: api_accounts_token_refresh_create
+      description: |-
+        Takes a refresh type JSON web token and returns an access type JSON web
+        token if the refresh token is valid.
+      tags:
+      - api
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+                description: Unspecified response body
+          description: ''
+  /api/accounts/user-badges/:
+    get:
+      operationId: api_accounts_user_badges_list
+      description: |-
+        Platformdakı istənilən istifadəçi başqalarının da badge-lərini görə bilər.
+        `username` query parametri ilə müəyyən istifadəçinin badge-ləri göstərilir.
+        Əgər query parametri yoxdursa, öz istifadəçisinin badge-ləri qaytarılır.
+      parameters:
+      - in: query
+        name: username
+        schema:
+          type: string
+        description: Badge-ləri göstərmək istədiyiniz istifadəçi adı (optional)
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserBadge'
+          description: ''
+  /api/accounts/user-badges/assign/:
+    post:
+      operationId: api_accounts_user_badges_assign_create
+      description: |-
+        Platformdakı istənilən istifadəçi başqalarının da badge-lərini görə bilər.
+        `username` query parametri ilə müəyyən istifadəçinin badge-ləri göstərilir.
+        Əgər query parametri yoxdursa, öz istifadəçisinin badge-ləri qaytarılır.
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                  example: 5
+                badge_id:
+                  type: integer
+                  example: 2
+              required:
+              - user_id
+              - badge_id
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                description: Badge uğurla təyin edildi
+                content:
+                  application/json:
+                    example:
+                      detail: Badge uğurla təyin edildi
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                description: Xəta
+                content:
+                  application/json:
+                    example:
+                      detail: user_id və badge_id tələb olunur və ya badge artıq var
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                description: İcazə yoxdur
+                content:
+                  application/json:
+                    example:
+                      detail: Yalnız adminlər istifadəçiyə badge verə bilər.
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                description: Tapılmadı
+                content:
+                  application/json:
+                    example:
+                      detail: İstifadəçi və ya Badge tapılmadı
+          description: ''
+  /api/accounts/user-stats/:
+    get:
+      operationId: api_accounts_user_stats_list
+      description: |-
+        İstifadəçi statistikası.
+        - Öz stats-larını `me/` endpointi ilə görmək olur.
+        - Admin istənilən istifadəçinin stats-larını görür.
+        - İstəyə bağlı olaraq `?username=` ilə başqa userlərin stats-ları alınır.
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserStats'
+          description: ''
+  /api/accounts/user-stats/{id}/:
+    get:
+      operationId: api_accounts_user_stats_retrieve
+      description: |-
+        İstifadəçi statistikası.
+        - Öz stats-larını `me/` endpointi ilə görmək olur.
+        - Admin istənilən istifadəçinin stats-larını görür.
+        - İstəyə bağlı olaraq `?username=` ilə başqa userlərin stats-ları alınır.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserStats'
+          description: ''
+  /api/accounts/user-stats/by-username/:
+    get:
+      operationId: api_accounts_user_stats_by_username_retrieve
+      description: |-
+        İstifadəçi statistikası.
+        - Öz stats-larını `me/` endpointi ilə görmək olur.
+        - Admin istənilən istifadəçinin stats-larını görür.
+        - İstəyə bağlı olaraq `?username=` ilə başqa userlərin stats-ları alınır.
+      summary: İstifadəçi adı ilə stats al
+      parameters:
+      - in: query
+        name: username
+        schema:
+          type: string
+        description: Stats göstərmək istədiyiniz istifadəçi adı
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserStats'
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+          description: ''
+  /api/accounts/user-stats/me/:
+    get:
+      operationId: api_accounts_user_stats_me_retrieve
+      description: |-
+        İstifadəçi statistikası.
+        - Öz stats-larını `me/` endpointi ilə görmək olur.
+        - Admin istənilən istifadəçinin stats-larını görür.
+        - İstəyə bağlı olaraq `?username=` ilə başqa userlərin stats-ları alınır.
+      summary: Öz stats məlumatlarını al
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserStats'
+          description: ''
+  /api/accounts/users/:
+    get:
+      operationId: api_accounts_users_list
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+          description: ''
+    post:
+      operationId: api_accounts_users_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+  /api/accounts/users/{username}/:
+    get:
+      operationId: api_accounts_users_retrieve
+      parameters:
+      - in: path
+        name: username
+        schema:
+          type: string
+          description: Yalnız hərf, rəqəm və alt xətt (_) istifadə oluna bilər. 3-20
+            simvol.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+    put:
+      operationId: api_accounts_users_update
+      parameters:
+      - in: path
+        name: username
+        schema:
+          type: string
+          description: Yalnız hərf, rəqəm və alt xətt (_) istifadə oluna bilər. 3-20
+            simvol.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+    patch:
+      operationId: api_accounts_users_partial_update
+      parameters:
+      - in: path
+        name: username
+        schema:
+          type: string
+          description: Yalnız hərf, rəqəm və alt xətt (_) istifadə oluna bilər. 3-20
+            simvol.
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUser'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUser'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUser'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+    delete:
+      operationId: api_accounts_users_destroy
+      parameters:
+      - in: path
+        name: username
+        schema:
+          type: string
+          description: Yalnız hərf, rəqəm və alt xətt (_) istifadə oluna bilər. 3-20
+            simvol.
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/accounts/users/me/:
+    get:
+      operationId: api_accounts_users_me_retrieve
+      summary: Hazırkı istifadəçinin məlumatları
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+  /api/accounts/users/set-avatar/:
+    patch:
+      operationId: api_accounts_users_set_avatar_partial_update
+      summary: Avatar yeniləmə
+      tags:
+      - api
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedAvatarUpdate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedAvatarUpdate'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+          description: ''
+  /api/accounts/users/set-bio/:
+    patch:
+      operationId: api_accounts_users_set_bio_partial_update
+      summary: Bio yeniləmə
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedBioUpdate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedBioUpdate'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedBioUpdate'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+          description: ''
+  /api/accounts/verify-email/{uidb64}/{token}/:
+    get:
+      operationId: api_accounts_verify_email_retrieve
+      parameters:
+      - in: path
+        name: token
+        schema:
+          type: string
+        required: true
+      - in: query
+        name: token
+        schema:
+          type: string
+        description: Verification token
+      - in: path
+        name: uidb64
+        schema:
+          type: string
+        description: User ID encoded
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          description: Email verified successfully
+  /api/schema/:
+    get:
+      operationId: api_schema_retrieve
+      description: |-
+        OpenApi3 schema for this API. Format can be selected via content negotiation.
+
+        - YAML: application/vnd.oai.openapi
+        - JSON: application/vnd.oai.openapi+json
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - yaml
+      - in: query
+        name: lang
+        schema:
+          type: string
+          enum:
+          - af
+          - ar
+          - ar-dz
+          - ast
+          - az
+          - be
+          - bg
+          - bn
+          - br
+          - bs
+          - ca
+          - ckb
+          - cs
+          - cy
+          - da
+          - de
+          - dsb
+          - el
+          - en
+          - en-au
+          - en-gb
+          - eo
+          - es
+          - es-ar
+          - es-co
+          - es-mx
+          - es-ni
+          - es-ve
+          - et
+          - eu
+          - fa
+          - fi
+          - fr
+          - fy
+          - ga
+          - gd
+          - gl
+          - he
+          - hi
+          - hr
+          - hsb
+          - hu
+          - hy
+          - ia
+          - id
+          - ig
+          - io
+          - is
+          - it
+          - ja
+          - ka
+          - kab
+          - kk
+          - km
+          - kn
+          - ko
+          - ky
+          - lb
+          - lt
+          - lv
+          - mk
+          - ml
+          - mn
+          - mr
+          - ms
+          - my
+          - nb
+          - ne
+          - nl
+          - nn
+          - os
+          - pa
+          - pl
+          - pt
+          - pt-br
+          - ro
+          - ru
+          - sk
+          - sl
+          - sq
+          - sr
+          - sr-latn
+          - sv
+          - sw
+          - ta
+          - te
+          - tg
+          - th
+          - tk
+          - tr
+          - tt
+          - udm
+          - ug
+          - uk
+          - ur
+          - uz
+          - vi
+          - zh-hans
+          - zh-hant
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/vnd.oai.openapi:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/yaml:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/vnd.oai.openapi+json:
+              schema:
+                type: object
+                additionalProperties: {}
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+          description: ''
+  /api/titles/casts/:
+    get:
+      operationId: api_titles_casts_list
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MovieCast'
+          description: ''
+    post:
+      operationId: api_titles_casts_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MovieCast'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/MovieCast'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MovieCast'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MovieCast'
+          description: ''
+  /api/titles/casts/{slug}/:
+    get:
+      operationId: api_titles_casts_retrieve
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MovieCast'
+          description: ''
+    put:
+      operationId: api_titles_casts_update
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MovieCast'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/MovieCast'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MovieCast'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MovieCast'
+          description: ''
+    patch:
+      operationId: api_titles_casts_partial_update
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedMovieCast'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedMovieCast'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedMovieCast'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MovieCast'
+          description: ''
+    delete:
+      operationId: api_titles_casts_destroy
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/titles/crews/:
+    get:
+      operationId: api_titles_crews_list
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MovieCrew'
+          description: ''
+    post:
+      operationId: api_titles_crews_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MovieCrew'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/MovieCrew'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MovieCrew'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MovieCrew'
+          description: ''
+  /api/titles/crews/{slug}/:
+    get:
+      operationId: api_titles_crews_retrieve
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MovieCrew'
+          description: ''
+    put:
+      operationId: api_titles_crews_update
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MovieCrew'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/MovieCrew'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MovieCrew'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MovieCrew'
+          description: ''
+    patch:
+      operationId: api_titles_crews_partial_update
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedMovieCrew'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedMovieCrew'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedMovieCrew'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MovieCrew'
+          description: ''
+    delete:
+      operationId: api_titles_crews_destroy
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/titles/genres/:
+    get:
+      operationId: api_titles_genres_list
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Genre'
+          description: ''
+    post:
+      operationId: api_titles_genres_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Genre'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Genre'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Genre'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Genre'
+          description: ''
+  /api/titles/genres/{slug}/:
+    get:
+      operationId: api_titles_genres_retrieve
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Genre'
+          description: ''
+    put:
+      operationId: api_titles_genres_update
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Genre'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Genre'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Genre'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Genre'
+          description: ''
+    patch:
+      operationId: api_titles_genres_partial_update
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedGenre'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedGenre'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedGenre'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Genre'
+          description: ''
+    delete:
+      operationId: api_titles_genres_destroy
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/titles/movies/:
+    get:
+      operationId: api_titles_movies_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedMovieListList'
+          description: ''
+    post:
+      operationId: api_titles_movies_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MovieList'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/MovieList'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MovieList'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MovieList'
+          description: ''
+  /api/titles/movies/{slug}/:
+    get:
+      operationId: api_titles_movies_retrieve
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MovieDetail'
+          description: ''
+    put:
+      operationId: api_titles_movies_update
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MovieList'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/MovieList'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/MovieList'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MovieList'
+          description: ''
+    patch:
+      operationId: api_titles_movies_partial_update
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedMovieList'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedMovieList'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedMovieList'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MovieList'
+          description: ''
+    delete:
+      operationId: api_titles_movies_destroy
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/titles/people/:
+    get:
+      operationId: api_titles_people_list
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Person'
+          description: ''
+    post:
+      operationId: api_titles_people_create
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Person'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Person'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Person'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Person'
+          description: ''
+  /api/titles/people/{slug}/:
+    get:
+      operationId: api_titles_people_retrieve
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Person'
+          description: ''
+    put:
+      operationId: api_titles_people_update
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Person'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Person'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Person'
+        required: true
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Person'
+          description: ''
+    patch:
+      operationId: api_titles_people_partial_update
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedPerson'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedPerson'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedPerson'
+      security:
+      - jwtAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Person'
+          description: ''
+    delete:
+      operationId: api_titles_people_destroy
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      security:
+      - jwtAuth: []
+      responses:
+        '204':
+          description: No response body
+components:
+  schemas:
+    Badge:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 100
+        description:
+          type: string
+        icon:
+          type: string
+          format: uri
+          nullable: true
+        criteria: {}
+        is_active:
+          type: boolean
+      required:
+      - description
+      - id
+      - name
+    BadgeUpload:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        criteria: {}
+        is_active:
+          type: boolean
+        icon:
+          type: string
+          format: uri
+      required:
+      - criteria
+      - icon
+      - is_active
+      - name
+    Follow:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        follower:
+          type: integer
+          readOnly: true
+        follower_username:
+          type: string
+          readOnly: true
+        followed:
+          type: string
+          description: Yalnız hərf, rəqəm və alt xətt (_) istifadə oluna bilər. 3-20
+            simvol.
+        followed_username:
+          type: string
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created_at
+      - followed
+      - followed_username
+      - follower
+      - follower_username
+      - id
+    Genre:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 50
+        slug:
+          type: string
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+      required:
+      - id
+      - name
+    Login:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+          writeOnly: true
+      required:
+      - email
+      - password
+    Logout:
+      type: object
+      properties:
+        refresh:
+          type: string
+      required:
+      - refresh
+    MovieCast:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        person:
+          $ref: '#/components/schemas/Person'
+        character_name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+      - person
+    MovieCrew:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        person:
+          $ref: '#/components/schemas/Person'
+        role:
+          type: string
+          maxLength: 100
+      required:
+      - id
+      - person
+      - role
+    MovieDetail:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        title:
+          type: string
+          maxLength: 255
+        original_title:
+          type: string
+          maxLength: 255
+        slug:
+          type: string
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+        type:
+          $ref: '#/components/schemas/TypeEnum'
+        description:
+          type: string
+        release_year:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+        release_date:
+          type: string
+          format: date
+          nullable: true
+        duration_minutes:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+        poster:
+          type: string
+          format: uri
+          nullable: true
+        trailer_url:
+          type: string
+          format: uri
+          maxLength: 200
+        language:
+          type: string
+          maxLength: 100
+        country:
+          type: string
+          maxLength: 100
+        genres:
+          type: array
+          items:
+            $ref: '#/components/schemas/Genre'
+        cast:
+          type: array
+          items:
+            $ref: '#/components/schemas/MovieCast'
+        crew:
+          type: array
+          items:
+            $ref: '#/components/schemas/MovieCrew'
+        average_rating:
+          type: number
+          format: double
+        rating_count:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+        review_count:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - cast
+      - created_at
+      - crew
+      - duration_minutes
+      - genres
+      - id
+      - release_year
+      - title
+    MovieList:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        title:
+          type: string
+          maxLength: 255
+        poster:
+          type: string
+          format: uri
+          nullable: true
+        release_year:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+        average_rating:
+          type: number
+          format: double
+        rating_count:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+        slug:
+          type: string
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+      required:
+      - id
+      - release_year
+      - title
+    PaginatedMovieListList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/MovieList'
+    PasswordResetConfirm:
+      type: object
+      properties:
+        password:
+          type: string
+          writeOnly: true
+        password2:
+          type: string
+          writeOnly: true
+      required:
+      - password
+      - password2
+    PasswordResetRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+      required:
+      - email
+    PatchedAvatarUpdate:
+      type: object
+      properties:
+        avatar:
+          type: string
+          format: uri
+    PatchedBadge:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 100
+        description:
+          type: string
+        icon:
+          type: string
+          format: uri
+          nullable: true
+        criteria: {}
+        is_active:
+          type: boolean
+    PatchedBioUpdate:
+      type: object
+      properties:
+        bio:
+          type: string
+          maxLength: 500
+    PatchedFollow:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        follower:
+          type: integer
+          readOnly: true
+        follower_username:
+          type: string
+          readOnly: true
+        followed:
+          type: string
+          description: Yalnız hərf, rəqəm və alt xətt (_) istifadə oluna bilər. 3-20
+            simvol.
+        followed_username:
+          type: string
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+    PatchedGenre:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 50
+        slug:
+          type: string
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+    PatchedMovieCast:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        person:
+          $ref: '#/components/schemas/Person'
+        character_name:
+          type: string
+          maxLength: 255
+    PatchedMovieCrew:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        person:
+          $ref: '#/components/schemas/Person'
+        role:
+          type: string
+          maxLength: 100
+    PatchedMovieList:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        title:
+          type: string
+          maxLength: 255
+        poster:
+          type: string
+          format: uri
+          nullable: true
+        release_year:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+        average_rating:
+          type: number
+          format: double
+        rating_count:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+        slug:
+          type: string
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+    PatchedPerson:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 100
+        photo:
+          type: string
+          format: uri
+          nullable: true
+        slug:
+          type: string
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+    PatchedUser:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        username:
+          type: string
+          description: Yalnız hərf, rəqəm və alt xətt (_) istifadə oluna bilər. 3-20
+            simvol.
+        role:
+          $ref: '#/components/schemas/RoleEnum'
+        is_verified:
+          type: boolean
+          description: Mavi tik - rəsmi hesab
+        is_activated:
+          type: boolean
+          description: Email təsdiqi və hesab aktivliyi
+        avatar:
+          type: string
+          format: uri
+          nullable: true
+        avatar_url:
+          type: string
+          readOnly: true
+        bio:
+          type: string
+          nullable: true
+          maxLength: 500
+        date_joined:
+          type: string
+          format: date-time
+          readOnly: true
+    Person:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 100
+        photo:
+          type: string
+          format: uri
+          nullable: true
+        slug:
+          type: string
+          maxLength: 50
+          pattern: ^[-a-zA-Z0-9_]+$
+      required:
+      - id
+      - name
+    RoleEnum:
+      enum:
+      - user
+      - curator
+      - moderator
+      - admin
+      type: string
+      description: |-
+        * `user` - User
+        * `curator` - Curator
+        * `moderator` - Moderator
+        * `admin` - Admin
+    TypeEnum:
+      enum:
+      - movie
+      - tv_series
+      - short
+      - documentary
+      type: string
+      description: |-
+        * `movie` - Movie
+        * `tv_series` - TV Series
+        * `short` - Short Film
+        * `documentary` - Documentary
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        username:
+          type: string
+          description: Yalnız hərf, rəqəm və alt xətt (_) istifadə oluna bilər. 3-20
+            simvol.
+        role:
+          $ref: '#/components/schemas/RoleEnum'
+        is_verified:
+          type: boolean
+          description: Mavi tik - rəsmi hesab
+        is_activated:
+          type: boolean
+          description: Email təsdiqi və hesab aktivliyi
+        avatar:
+          type: string
+          format: uri
+          nullable: true
+        avatar_url:
+          type: string
+          readOnly: true
+        bio:
+          type: string
+          nullable: true
+          maxLength: 500
+        date_joined:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - avatar_url
+      - date_joined
+      - email
+      - id
+      - username
+    UserBadge:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        user:
+          type: string
+          readOnly: true
+        badge:
+          allOf:
+          - $ref: '#/components/schemas/Badge'
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - badge
+      - created_at
+      - id
+      - user
+    UserProfile:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        username:
+          type: string
+          description: Yalnız hərf, rəqəm və alt xətt (_) istifadə oluna bilər. 3-20
+            simvol.
+        role:
+          $ref: '#/components/schemas/RoleEnum'
+        is_verified:
+          type: boolean
+          description: Mavi tik - rəsmi hesab
+        is_activated:
+          type: boolean
+          description: Email təsdiqi və hesab aktivliyi
+        avatar_url:
+          type: string
+          readOnly: true
+        bio:
+          type: string
+          nullable: true
+          maxLength: 500
+      required:
+      - avatar_url
+      - email
+      - id
+      - username
+    UserRegistration:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+          maxLength: 254
+        username:
+          type: string
+        password:
+          type: string
+          writeOnly: true
+        password2:
+          type: string
+          writeOnly: true
+      required:
+      - email
+      - password
+      - password2
+      - username
+    UserStats:
+      type: object
+      properties:
+        user_username:
+          type: string
+          readOnly: true
+        review_count:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+        discussion_count:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+        list_like_count:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+        profile_views:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+        followers_count:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+        following_count:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+        lists_created:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+        reviews_liked_count:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+        discussions_participated:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+        watchlist_count:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+        badges_earned_count:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+        last_active:
+          type: string
+          format: date-time
+          readOnly: true
+        joined_at:
+          type: string
+          format: date-time
+          readOnly: true
+        total_activity:
+          type: integer
+          readOnly: true
+        days_active:
+          type: integer
+          readOnly: true
+      required:
+      - days_active
+      - joined_at
+      - last_active
+      - total_activity
+      - user_username
+  securitySchemes:
+    jwtAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
